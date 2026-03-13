@@ -2,10 +2,9 @@
   "name": "project-1-basis-scrum-c2025-team-1",
   "version": "1.0.0",
   "description": "Help desk ticket systeem voor meerdere scholen. Voor vragen en problemen waarbij je kunt aangeven welke categorie het onder valt.",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch"
+    "watch": "npx @tailwindcss/cli -i ./src/input.css -o ./public/style.css --watch"
   },
   "repository": {
     "type": "git",
