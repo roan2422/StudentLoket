@@ -16,7 +16,7 @@ Help desk ticket systeem voor meerdere scholen. Voor vragen en problemen waarbij
 1. Installeer de benodigde packages:
 
    ```bash
-   npm install tailwindcss @tailwindcss/cli
+   npm install 
    ```
 
 2. Start de watcher (terminal ./project-1-basis-scrum-c2025-team-1 (main)):
@@ -28,7 +28,7 @@ Help desk ticket systeem voor meerdere scholen. Voor vragen en problemen waarbij
    Of als dat niet werkt, probeer:
 
    ```bash
-   npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch
+   npx @tailwindcss/cli -i ./src/input.css -o ./public/style.css --watch
    ```
 
 3. Controleer of alle paths naar `output.css` kloppen en dan zou het moeten werken!

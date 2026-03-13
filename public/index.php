@@ -1,29 +1,8 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Home</title>
-        <link rel="stylesheet" href="style.css" />
-    </head>
-    <body>
-        <div class="navbar">
-            <div class="navbar-inside">
-                <div class="navbar-left">
-                    <a class="navbar-logo" href="index.html">
-                        <img src="img/logo.png" alt="navbar-logo" />
-                    </a>
-                </div>
-                <div class="navbar-right">
-                    <div>
-                        <button class="navbar-ticket-button">Ticket indienen</button>
-                    </div>
-                    <div>
-                        <button class="navbar-login-button">Inloggen</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+<?php
+    $title = 'Home';
+    include_once 'views/header.php';
+    include_once 'views/navbar-main.php';
+?>
         <div>
             <div class="homepage-title-div">
                 <p>StudentLoket</p>
@@ -113,43 +92,7 @@
                 </div>
             </div>
         </div>
-        <div class="footer" id="footer">
-            <div class="footer-top">
-                <p class="footer-top-title">Contact opnemen:</p>
-            </div>
-            <div class="footer-bottom">
-                <div class="footer-bottom-left">
-                    <div class="footer-bottom-left-middle">
-                        <a class="icon-linking" href="https://www.instagram.com" target="_blank">
-                            <img src="img/instagram-white.webp" alt="instagram-white" />
-                            <p class="footer-icon-text">Instagram</p>
-                        </a>
-                        <a class="icon-linking" href="https://www.facebook.com" target="_blank">
-                            <img src="img/facebook-white.webp" alt="facebook-white" />
-                            <p class="footer-icon-text">facebook</p>
-                        </a>
-                        <a class="icon-linking" href="https://www.twitter.com" target="_blank">
-                            <img src="img/twitter-white.png" alt="twitter-white" />
-                            <p class="footer-icon-text">Twitter</p>
-                        </a>
-                        <a class="icon-linking" href="https://www.youtube.com" target="_blank">
-                            <img src="img/youtube-white.webp" alt="youtube-white" />
-                            <p class="footer-icon-text">Youtube</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-bottom-right">
-                    <div>
-                        <p class="footer-bottom-right-title">Onze gegevens:</p>
-                    </div>
-                    <div>
-                        <p class="footer-bottom-right-text">Telefoonnummer: +31 639696223</p>
-                        <p class="footer-bottom-right-text">Email: support@StudentLoket.nl</p>
-                        <p class="footer-bottom-right-text">LinkedIn: StudentLoket</p>
-                        <p class="footer-bottom-right-text">Adres: Muntinglaan</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+
+        <?php
+            include_once 'views/footer.php';
+        ?>
