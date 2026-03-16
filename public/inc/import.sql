@@ -6,7 +6,7 @@ USE `studentloket`;
 
 CREATE TABLE `schools` (
   `schoolid` integer PRIMARY KEY AUTO_INCREMENT,
-  `name` varchar(255) UNIQUE,
+  `schoolname` varchar(255) UNIQUE NOT NULL,
   `city` varchar(255) NOT NULL,
   `street` varchar(255) NOT NULL,
   `postalcode` varchar(6) NOT NULL
