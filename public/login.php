@@ -12,11 +12,11 @@
         <form>
             <div>
                 <p>E-mailadres</p>
-                <input placeholder="Uw.email@school.nl" type="email" name="email-login-input" id="wachtwoord-login-input">
+                <input placeholder="Uw.email@school.nl" type="email" name="email-login-input" id="email-login-input">
             </div>
             <div>
                 <p>Wachtwoord</p>
-                <input type="password" name="password-login-input" id="password-login-input">
+                <input type="password" name="wachtwoord-login-input" id="wachtwoord-login-input">
             </div>
         </form>
         <div>
