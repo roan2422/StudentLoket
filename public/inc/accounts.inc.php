@@ -31,7 +31,7 @@ function addaccount($conn, $account)
         checkaccountdata($conn, $account);
         $query = $conn->prepare("INSERT INTO accounts (userid, password, role) VALUES (:userid, :password, :role)");
         $query->bindParam(':userid', $account["userid"], PDO::PARAM_INT);
-        $query->bindParam(':password', password_hash($account["password"], PASSWORD_DEFAULT), PDO::PARAM_STR);
+        $query->bindParam(':password', $account["password"], PDO::PARAM_STR);
         $query->bindParam(':role', $account["role"], PDO::PARAM_STR);
         $query->execute();
     } catch (Exception $e) {
@@ -44,7 +44,7 @@ function editaccount($conn, $account)
     try {
         checkaccountdata($conn, $account);
         $query = $conn->prepare("UPDATE accounts SET password=:password, role=:role, userid=:userid WHERE accountid=:accountid");
-        $query->bindParam(':password', password_hash($account["password"], PASSWORD_DEFAULT), PDO::PARAM_STR);
+        $query->bindParam(':password', $account["password"], PDO::PARAM_STR);
         $query->bindParam(':role', $account["role"], PDO::PARAM_STR);
         $query->bindParam(':userid', $account['userid'], PDO::PARAM_INT);
         $query->bindParam(':accountid', $account['accountid'], PDO::PARAM_INT);
