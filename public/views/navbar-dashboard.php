@@ -30,15 +30,15 @@
     </div>
     <nav>
       <a
-        href=""
-        class="block py-3.5 text-center text-xl bg-[#7EE4F7] hover:bg-[#ADF7FF] rounded-2xl mx-8 sm:px-4 underline mb-2"
+        href="http://scrum1.project/public/dashboard.php"
+        class="block py-3.5 text-center text-xl hover:bg-[#7EE4F7] rounded-2xl mx-8 sm:px-4 mb-2 hover:underline"
       >Dashboard</a>
       <a
         href=""
         class="block py-3.5 text-center text-xl hover:bg-[#7EE4F7] hover:rounded-2xl mx-8 sm:px-4 hover:underline my-2"
       >Alle tickets</a>
       <a
-        href=""
+        href="http://scrum1.project/public/mijnTickets.php"
         class="block py-3.5 text-center text-xl hover:bg-[#7EE4F7] hover:rounded-2xl sm:px-4 mx-8 hover:underline my-2"
       >Mijn tickets</a>
       <a
