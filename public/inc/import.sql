@@ -21,14 +21,14 @@ CREATE TABLE `accounts` (
   `accountid` integer PRIMARY KEY AUTO_INCREMENT,
   `userid` integer UNIQUE NOT NULL,
   `password` varchar(255) NOT NULL,
-  `role` ENUM ('admin', 'schooladmin', 'employee') NOT NULL
+  `role` ENUM ('Admin', 'Schooladmin', 'Employee') NOT NULL
 );
 
 CREATE TABLE `tickets` (
   `ticketid` integer PRIMARY KEY AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `priority` ENUM ('laag', 'gemiddeld', 'hoog') NOT NULL,
+  `priority` ENUM ('Laag', 'Gemiddeld', 'Hoog') NOT NULL,
   `creationdate` timestamp NOT NULL,
   `status` ENUM ('Open', 'In behandeling', 'Opgelost') NOT NULL,
   `schoolid` int NOT NULL,
@@ -73,12 +73,12 @@ INSERT INTO `users` (`name`, `email`) VALUES
 
 -- Accounts
 INSERT INTO `accounts` (`userid`, `password`, `role`) VALUES
-(1, 'hashed_pw_1', 'admin'),
-(2, 'hashed_pw_2', 'schooladmin'),
-(3, 'hashed_pw_3', 'employee'),
-(4, 'hashed_pw_4', 'employee'),
-(5, 'hashed_pw_5', 'schooladmin'),
-(6, 'hashed_pw_6', 'employee');
+(1, 'hashed_pw_1', 'Admin'),
+(2, 'hashed_pw_2', 'Schooladmin'),
+(3, 'hashed_pw_3', 'Employee'),
+(4, 'hashed_pw_4', 'Employee'),
+(5, 'hashed_pw_5', 'Schooladmin'),
+(6, 'hashed_pw_6', 'Employee');
 
 -- Account-School Connections
 INSERT INTO `accountschoolconn` (`accountid`, `schoolid`) VALUES
@@ -93,9 +93,9 @@ INSERT INTO `accountschoolconn` (`accountid`, `schoolid`) VALUES
 INSERT INTO `tickets`
 (`title`, `description`, `priority`, `creationdate`, `status`, `schoolid`, `makerid`, `assigneeid`, `notes`)
 VALUES
-('Printer werkt niet', 'Printer op verdieping 2 is kapot', 'laag', NOW() - INTERVAL 5 DAY, 'Open', 1, 3, 4, 'Nog niet nagekeken'),
-('WiFi storing', 'Geen internet in lokaal B12', 'hoog', NOW() - INTERVAL 2 DAY, 'In behandeling', 2, 2, 3, 'IT is bezig'),
-('Beamer defect', 'Beamer geeft geen beeld', 'gemiddeld', NOW() - INTERVAL 7 DAY, 'Opgelost', 1, 4, 3, 'Kabel vervangen'),
-('Account geblokkeerd', 'Student kan niet inloggen', 'hoog', NOW() - INTERVAL 1 DAY, 'Open', 3, 5, NULL, NULL),
-('Software installatie', 'Nieuwe versie van software nodig', 'laag', NOW() - INTERVAL 3 DAY, 'In behandeling', 4, 6, 4, 'Installatie gepland'),
-('Laptop start niet op', 'Laptop blijft hangen bij opstarten', 'hoog', NOW() - INTERVAL 6 DAY, 'Opgelost', 2, 1, 3, 'OS opnieuw geïnstalleerd');
+('Printer werkt niet', 'Printer op verdieping 2 is kapot', 'Laag', NOW() - INTERVAL 5 DAY, 'Open', 1, 3, 4, 'Nog niet nagekeken'),
+('WiFi storing', 'Geen internet in lokaal B12', 'Hoog', NOW() - INTERVAL 2 DAY, 'In behandeling', 2, 2, 3, 'IT is bezig'),
+('Beamer defect', 'Beamer geeft geen beeld', 'Gemiddeld', NOW() - INTERVAL 7 DAY, 'Opgelost', 1, 4, 3, 'Kabel vervangen'),
+('Account geblokkeerd', 'Student kan niet inloggen', 'Hoog', NOW() - INTERVAL 1 DAY, 'Open', 3, 5, NULL, NULL),
+('Software installatie', 'Nieuwe versie van software nodig', 'Laag', NOW() - INTERVAL 3 DAY, 'In behandeling', 4, 6, 4, 'Installatie gepland'),
+('Laptop start niet op', 'Laptop blijft hangen bij opstarten', 'Hoog', NOW() - INTERVAL 6 DAY, 'Opgelost', 2, 1, 3, 'OS opnieuw geïnstalleerd');

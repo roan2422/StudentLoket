@@ -12,12 +12,12 @@ function checkticketdata($conn, $ticket)
         throw new Exception("Beschrijving mag niet leeg zijn");
     }
 
-    if (!empty(trim($ticket['category']))) {
-        if (!in_array($ticket['category'], getEnumOptions($conn, 'tickets', 'category'))) {
-            throw new Exception("Categorie is niet geldig");
+    if (!empty(trim($ticket['priority']))) {
+        if (!in_array($ticket['priority'], getEnumOptions($conn, 'tickets', 'priority'))) {
+            throw new Exception("Prioriteit is niet geldig");
         }
     } else {
-        $ticket['category'] = "Overig";
+        $ticket['priority'] = "Laag";
     }
 
     if (!empty(trim($ticket['status']))) {
@@ -41,10 +41,10 @@ function addticket($conn, $ticket)
 {
     try {
         checkticketdata($conn, $ticket);
-        $query = $conn->prepare("INSERT INTO tickets (title, description, category, creationdate, status, schoolid, makerid, assigneeid, notes) VALUES (:title, :description, :category, :creationdate, :status, :schoolid, :makerid, :assigneeid, :notes)");
+        $query = $conn->prepare("INSERT INTO tickets (title, description, priority, creationdate, status, schoolid, makerid, assigneeid, notes) VALUES (:title, :description, :priority, :creationdate, :status, :schoolid, :makerid, :assigneeid, :notes)");
         $query->bindParam(':title', $ticket["title"], PDO::PARAM_STR);
         $query->bindParam(':description', $ticket["description"], PDO::PARAM_STR);
-        $query->bindParam(':category', $ticket["category"], PDO::PARAM_STR);
+        $query->bindParam(':priority', $ticket["priority"], PDO::PARAM_STR);
         $query->bindParam(':creationdate', $ticket["creationdate"], PDO::PARAM_STR);
         $query->bindParam(':status', $ticket["status"], PDO::PARAM_STR);
         $query->bindParam(':schoolid', $ticket["school"], PDO::PARAM_INT);
@@ -61,10 +61,10 @@ function editticket($conn, $ticket)
 {
     try {
         checkticketdata($conn, $ticket);
-        $query = $conn->prepare("UPDATE tickets SET title=:title, description=:description, category=:category, creationdate=:creationdate, status=:status, schoolid=:schoolid, makerid=:makerid, assigneeid=:assigneeid, notes=:notes WHERE ticketid=:ticketid");
+        $query = $conn->prepare("UPDATE tickets SET title=:title, description=:description, priority=:priority, creationdate=:creationdate, status=:status, schoolid=:schoolid, makerid=:makerid, assigneeid=:assigneeid, notes=:notes WHERE ticketid=:ticketid");
         $query->bindParam(':title', $ticket["title"], PDO::PARAM_STR);
         $query->bindParam(':description', $ticket["description"], PDO::PARAM_STR);
-        $query->bindParam(':category', $ticket["category"], PDO::PARAM_STR);
+        $query->bindParam(':priority', $ticket["priority"], PDO::PARAM_STR);
         $query->bindParam(':creationdate', $ticket["creationdate"], PDO::PARAM_STR);
         $query->bindParam(':status', $ticket["status"], PDO::PARAM_STR);
         $query->bindParam(':schoolid', $ticket["school"], PDO::PARAM_INT);
