@@ -1,5 +1,5 @@
 <div class="relative min-h-screen md:flex">
-  <!-- Mobiele top navbar -->
+  <!-- Mobile top navbar -->
   <div class="bg-[#00AAFF] flex justify-between md:hidden">
     <a href="" class="block p-4 text-white font-bold">
       <img src="img/logo.png" alt="logo" class="w-42" />

@@ -28,6 +28,7 @@ include_once __DIR__ . '/views/navbar-dashboard.php';
       <p class="text-[#000000] text-xl">Mijn toegewezen tickets</p>
       <p class="font-thin text-xs mt-4 lg:text-sm">Je hebt nog geen toegewezen tickets</p>
   </div>
+  
   </div>
 </div>  
 <?php include_once 'views/footer-dashboard.php'
