@@ -16,7 +16,7 @@
             </div>
             <div>
                 <p>Wachtwoord</p>
-                <input type="password" name="" id="">
+                <input type="password" name="password-login-input" id="password-login-input">
             </div>
         </form>
         <div>
