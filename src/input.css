@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+@theme {
+    --color-primary-blue: oklch(0.5834 0.1366 241.26);
+    --color-accent-pink: oklch(0.5669 0.230694 358.351);
+    --color-accent-green: oklch(0.6595 0.1678 152.32);
+}
