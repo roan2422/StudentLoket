@@ -186,7 +186,7 @@ public/resources/
 
 ### VisualStudioCode ###
 .vscode/*
-!.vscode/settings.json
+.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
@@ -230,3 +230,10 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/node,visualstudiocode,macos,windows,silverstripe
+
+# Database connection
+database.inc.php
+test.php
+
+## Style
+style.css
