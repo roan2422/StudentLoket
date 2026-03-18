@@ -12,8 +12,8 @@
                 <p>Snel, efficient en overzichtelijk problemen melden en oplossen.</p>
             </div>
             <div class="homepage-options-buttons-div flex justify-center gap-[40px]">
-                <button class="homepage-ticket-indienen-button bg-accent-pink border border-accent-pink bg-none py-[15px] px-[20px] text-white text-[20px] text-7xl rounded-[6px]">Ticket indienen →</button>
-                <button class="homepage-inloggen-voor-medewerkers-button border bg-white bg-none py-[15px] px-[20px] text-accent-pink text-[20px] text-7xl rounded-[6px]">Inloggen voor medewerkers</button>
+                <button onclick="document.location='create-ticket.php'" class="cursor-pointer homepage-ticket-indienen-button bg-accent-pink border border-accent-pink bg-none py-[15px] px-[20px] text-white text-[20px] text-7xl rounded-[6px]">Ticket indienen →</button>
+                <button class="cursor-pointer homepage-inloggen-voor-medewerkers-button border bg-white bg-none py-[15px] px-[20px] text-accent-pink text-[20px] text-7xl rounded-[6px]">Inloggen voor medewerkers</button>
             </div>
             <div class="homepage-cards-div flex justify-between py-[150px] mx-[50px]">
                 <div class="homepage-card-1 text-white aspect-[4/3] p-[40px] rounded-[25px] text-center flex flex-col items-center justify-evenly bg-primary-blue">
@@ -87,7 +87,7 @@
                         </p>
                     </div>
                     <div class="wide-card-bottom">
-                        <button class="wide-card-2-medewerker-login-button bg-accent-green border-none px-[25px] py-[30px] text-white text-[20px] rounded-[15px] text-7xl m-[30px]">Medewerker login</button>
+                        <button class="cursor-pointer wide-card-2-medewerker-login-button bg-accent-green border-none px-[25px] py-[30px] text-white text-[20px] rounded-[15px] text-7xl m-[30px]">Medewerker login</button>
                     </div>
                 </div>
             </div>
