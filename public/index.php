@@ -1,7 +1,7 @@
 <?php
     $title = 'Home';
-    include_once 'views/header.php';
-    include_once 'views/navbar-main.php';
+        require_once 'views/header.php';
+        require_once 'views/navbar-main.php';
 ?>
         <div>
             <div class="homepage-title-div h-[20vh] flex justify-center items-end text-7xl p-[20px] font-bold">
@@ -94,5 +94,5 @@
         </div>
 
         <?php
-            include_once 'views/footer.php';
+        require_once 'views/footer.php';
         ?>

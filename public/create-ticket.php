@@ -1,7 +1,7 @@
 <?php
 $title = 'Ticket Aanmaken';
-include_once 'views/header.php';
-include_once 'views/navbar-main.php';
+require_once 'views/header.php';
+require_once 'views/navbar-main.php';
 ?>
 
 <div class="h-[92vh] py-[11vh]">
@@ -41,5 +41,5 @@ include_once 'views/navbar-main.php';
 </div>
 
 <?php
-include_once 'views/footer.php';
+require_once 'views/footer.php';
 ?>
