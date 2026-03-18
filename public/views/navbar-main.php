@@ -12,7 +12,7 @@
         </div>
         <div class="navbar-right flex items-center gap-[20px]">
             <div>
-                <button class="navbar-ticket-button text-white py-[10px] px-[20px] rounded-[10px] cursor-pointer">Ticket indienen</button>
+                <button onclick="document.location='create-ticket.php'" class="navbar-ticket-button text-white py-[10px] px-[20px] rounded-[10px] cursor-pointer">Ticket indienen</button>
             </div>
             <div>
                 <button class="navbar-login-button text-white py-[10px] px-[20px] rounded-[10px] bg-[#D50075] cursor-pointer mr-[20px]">Inloggen</button>
