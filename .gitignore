@@ -231,6 +231,9 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/node,visualstudiocode,macos,windows,silverstripe
 
-#database connection
+# Database connection
 database.inc.php
 test.php
+
+## Style
+style.css
