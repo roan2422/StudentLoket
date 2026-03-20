@@ -4,7 +4,7 @@ require_once 'views/header.php';
 require_once 'views/navbar-main.php';
 ?>
 
-<div class="h-[92vh] py-[11vh]">
+<div class="h-[120vh] py-[11vh]">
     <div class="bg-gray-100 mx-[25vw] p-[20px] rounded-[20px]">
         <div>
             <p class="text-7xl text-[35px] text-center">Ticket Indienen</p>
