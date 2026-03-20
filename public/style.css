@@ -233,6 +233,9 @@
   .mx-12 {
     margin-inline: calc(var(--spacing) * 12);
   }
+  .mx-\[20px\] {
+    margin-inline: 20px;
+  }
   .mx-\[25vw\] {
     margin-inline: 25vw;
   }
@@ -245,6 +248,9 @@
   .my-4 {
     margin-block: calc(var(--spacing) * 4);
   }
+  .my-\[50px\] {
+    margin-block: 50px;
+  }
   .mt-1 {
     margin-top: calc(var(--spacing) * 1);
   }
@@ -256,9 +262,6 @@
   }
   .mt-\[20px\] {
     margin-top: 20px;
-  }
-  .mt-\[40px\] {
-    margin-top: 40px;
   }
   .mt-\[50px\] {
     margin-top: 50px;
@@ -350,9 +353,6 @@
   .w-64 {
     width: calc(var(--spacing) * 64);
   }
-  .w-\[20px\] {
-    width: 20px;
-  }
   .w-\[25\%\] {
     width: 25%;
   }
@@ -361,9 +361,6 @@
   }
   .w-\[75\%\] {
     width: 75%;
-  }
-  .w-\[100px\] {
-    width: 100px;
   }
   .w-\[300px\] {
     width: 300px;
@@ -525,11 +522,11 @@
   .p-\[5px\] {
     padding: 5px;
   }
-  .p-\[10px\] {
-    padding: 10px;
-  }
   .p-\[20px\] {
     padding: 20px;
+  }
+  .p-\[25px\] {
+    padding: 25px;
   }
   .p-\[40px\] {
     padding: 40px;
@@ -566,9 +563,6 @@
   }
   .py-\[10px\] {
     padding-block: 10px;
-  }
-  .py-\[11vh\] {
-    padding-block: 11vh;
   }
   .py-\[15px\] {
     padding-block: 15px;
@@ -609,9 +603,6 @@
   .text-xs {
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
-  }
-  .text-\[10px\] {
-    font-size: 10px;
   }
   .text-\[15px\] {
     font-size: 15px;
