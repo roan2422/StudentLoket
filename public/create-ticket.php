@@ -4,8 +4,8 @@ require_once 'views/header.php';
 require_once 'views/navbar-main.php';
 ?>
 
-<div class="h-[92vh] py-[11vh]">
-    <div class="bg-gray-100 mx-[25vw] p-[20px] rounded-[20px]">
+<div class="h-[110vh] py-[11vh]">
+    <div class="bg-gray-100 ml-[25vw] mr-[25vw] p-[20px] rounded-[20px]">
         <div>
             <p class="text-7xl text-[35px] text-center">Ticket Indienen</p>
         </div>
@@ -22,8 +22,8 @@ require_once 'views/navbar-main.php';
             </div>
             <div class="mt-[10px]">
                 <p>School *</p>
-                <input required class="mt-[10px] w-full border-[1.5px] rounded-[10px] px-[10px] py-[5px]" placeholder="Uw huidige school" type="text" name="school-ticket-input" id="school-ticket-input">
-
+                <select required class="mt-[10px] w-full border-[1.5px] rounded-[10px] px-[10px] py-[5px]" placeholder="Uw huidige school" name="school-ticket-input" id="school-ticket-input">
+                </select>
             </div>
             <div class="mt-[10px]">
                 <p>Korte titel van het probleem *</p>
