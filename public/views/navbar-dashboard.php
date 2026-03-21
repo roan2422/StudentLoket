@@ -1,7 +1,7 @@
 <div class="relative min-h-screen md:flex">
   <!-- Mobile top navbar -->
   <div class="bg-[#00AAFF] flex justify-between md:hidden">
-    <a href="" class="block p-4 text-white font-bold">
+    <a href="http://scrum1.project/public/dashboard.php" class="block p-4 text-white font-bold">
       <img src="img/logo.png" alt="logo" class="w-42" />
     </a>
     <button
@@ -22,10 +22,12 @@
 
   <!-- Sidebar -->
   <div
-    class="sidebar bg-[#00AAFF] text-white w-56 px-2 flex flex-col justify-between absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out overflow-y-auto"
+    class="sidebar bg-[#00AAFF] text-white w-56 px-2 flex flex-col justify-between
+       absolute inset-y-0 left-0 transform -translate-x-full
+       md:relative md:translate-x-0 transition duration-200 ease-in-out z-50"
   >
     <div class="mt-4">
-      <a href="#" class="block"><img src="img/logo.png" alt="logo" class="w-64" /></a>
+      <a href="http://scrum1.project/public/dashboard.php" class="block"><img src="img/logo.png" alt="logo" class="w-64" /></a>
       <p class="text-center text-xl bg-[#FF008C] rounded-2xl py-4 block mt-4 mx-12">Admin</p>
     </div>
     <nav>
@@ -34,7 +36,7 @@
         class="block py-3.5 text-center text-xl hover:bg-[#7EE4F7] rounded-2xl mx-8 sm:px-4 mb-2 hover:underline"
       >Dashboard</a>
       <a
-        href=""
+        href="http://scrum1.project/public/alleTickets.php"
         class="block py-3.5 text-center text-xl hover:bg-[#7EE4F7] hover:rounded-2xl mx-8 sm:px-4 hover:underline my-2"
       >Alle tickets</a>
       <a
