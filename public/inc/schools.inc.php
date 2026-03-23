@@ -112,9 +112,9 @@ function getschools($conn)
 function getschoolnames($conn)
 {
     try {
-        $query = $conn->prepare("SELECT schoolname FROM schools");
+        $query = $conn->prepare("SELECT schoolid, schoolname FROM schools");
         $query->execute();
-        $fetchedschoolnames = $query->fetchAll(PDO::FETCH_COLUMN);
+        $fetchedschoolnames = $query->fetchAll();
         return $fetchedschoolnames;
     } catch (Exception $e) {
         echo "<p>Error: " . $e->getMessage() . "</p>";

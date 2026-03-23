@@ -12,16 +12,18 @@ function checkticketdata($conn, $ticket)
         throw new Exception("Beschrijving mag niet leeg zijn");
     }
 
-    if (!empty(trim($ticket['priority']))) {
-        if (!in_array($ticket['priority'], getEnumOptions($conn, 'tickets', 'priority'))) {
+    if (isset($ticket['priority'])) {
+        $trimmed = trim($ticket['priority']);
+        if (!in_array($trimmed, getEnumOptions($conn, 'tickets', 'priority'))) {
             throw new Exception("Prioriteit is niet geldig");
         }
     } else {
-        $ticket['priority'] = "Laag";
+        $ticket['priority'] = "Geen";
     }
 
-    if (!empty(trim($ticket['status']))) {
-        if (!in_array($ticket['status'], getEnumOptions($conn, 'tickets', 'status'))) {
+    if (isset($ticket['status'])) {
+        $trimmed = trim($ticket['status']);
+        if (!in_array($trimmed, getEnumOptions($conn, 'tickets', 'status'))) {
             throw new Exception("Status is niet geldig");
         }
     } else {
@@ -35,22 +37,23 @@ function checkticketdata($conn, $ticket)
     if (empty(trim($ticket['maker']))) {
         throw new Exception("Maker mag niet leeg zijn");
     }
+
+    return $ticket;
 }
 
 function addticket($conn, $ticket)
 {
     try {
-        checkticketdata($conn, $ticket);
-        $query = $conn->prepare("INSERT INTO tickets (title, description, priority, creationdate, status, schoolid, makerid, assigneeid, notes) VALUES (:title, :description, :priority, :creationdate, :status, :schoolid, :makerid, :assigneeid, :notes)");
-        $query->bindParam(':title', $ticket["title"], PDO::PARAM_STR);
-        $query->bindParam(':description', $ticket["description"], PDO::PARAM_STR);
-        $query->bindParam(':priority', $ticket["priority"], PDO::PARAM_STR);
-        $query->bindParam(':creationdate', $ticket["creationdate"], PDO::PARAM_STR);
-        $query->bindParam(':status', $ticket["status"], PDO::PARAM_STR);
-        $query->bindParam(':schoolid', $ticket["school"], PDO::PARAM_INT);
-        $query->bindParam(':makerid', $ticket["maker"], PDO::PARAM_INT);
-        $query->bindParam(':assigneeid', $ticket["assignee"], PDO::PARAM_INT);
-        $query->bindParam(':notes', $ticket["notes"], PDO::PARAM_STR);
+        $checkedticket = checkticketdata($conn, $ticket);
+        $query = $conn->prepare("INSERT INTO tickets (title, description, priority, creationdate, status, schoolid, makerid, assigneeid, notes) VALUES (:title, :description, :priority, now(), :status, :schoolid, :makerid, :assigneeid, :notes)");
+        $query->bindParam(':title', $checkedticket["title"], PDO::PARAM_STR);
+        $query->bindParam(':description', $checkedticket["description"], PDO::PARAM_STR);
+        $query->bindParam(':priority', $checkedticket["priority"], PDO::PARAM_STR);
+        $query->bindParam(':status', $checkedticket["status"], PDO::PARAM_STR);
+        $query->bindParam(':schoolid', $checkedticket["school"], PDO::PARAM_INT);
+        $query->bindParam(':makerid', $checkedticket["maker"], PDO::PARAM_INT);
+        $query->bindParam(':assigneeid', $checkedticket["assignee"], PDO::PARAM_INT);
+        $query->bindParam(':notes', $checkedticket["notes"], PDO::PARAM_STR);
         $query->execute();
     } catch (Exception $e) {
         echo "<p>Error: " . $e->getMessage() . "</p>";
@@ -60,18 +63,18 @@ function addticket($conn, $ticket)
 function editticket($conn, $ticket)
 {
     try {
-        checkticketdata($conn, $ticket);
+        $checkedticket = checkticketdata($conn, $ticket);
         $query = $conn->prepare("UPDATE tickets SET title=:title, description=:description, priority=:priority, creationdate=:creationdate, status=:status, schoolid=:schoolid, makerid=:makerid, assigneeid=:assigneeid, notes=:notes WHERE ticketid=:ticketid");
-        $query->bindParam(':title', $ticket["title"], PDO::PARAM_STR);
-        $query->bindParam(':description', $ticket["description"], PDO::PARAM_STR);
-        $query->bindParam(':priority', $ticket["priority"], PDO::PARAM_STR);
-        $query->bindParam(':creationdate', $ticket["creationdate"], PDO::PARAM_STR);
-        $query->bindParam(':status', $ticket["status"], PDO::PARAM_STR);
-        $query->bindParam(':schoolid', $ticket["school"], PDO::PARAM_INT);
-        $query->bindParam(':makerid', $ticket["maker"], PDO::PARAM_INT);
-        $query->bindParam(':assigneeid', $ticket["assignee"], PDO::PARAM_INT);
-        $query->bindParam(':notes', $ticket["notes"], PDO::PARAM_STR);
-        $query->bindParam(':ticketid', $ticket['ticketid'], PDO::PARAM_INT);
+        $query->bindParam(':title', $checkedticket["title"], PDO::PARAM_STR);
+        $query->bindParam(':description', $checkedticket["description"], PDO::PARAM_STR);
+        $query->bindParam(':priority', $checkedticket["priority"], PDO::PARAM_STR);
+        $query->bindParam(':creationdate', $checkedticket["creationdate"], PDO::PARAM_STR);
+        $query->bindParam(':status', $checkedticket["status"], PDO::PARAM_STR);
+        $query->bindParam(':schoolid', $checkedticket["school"], PDO::PARAM_INT);
+        $query->bindParam(':makerid', $checkedticket["maker"], PDO::PARAM_INT);
+        $query->bindParam(':assigneeid', $checkedticket["assignee"], PDO::PARAM_INT);
+        $query->bindParam(':notes', $checkedticket["notes"], PDO::PARAM_STR);
+        $query->bindParam(':ticketid', $checkedticket['ticketid'], PDO::PARAM_INT);
         $query->execute();
     } catch (Exception $e) {
         echo "<p>Error: " . $e->getMessage() . "</p>";
