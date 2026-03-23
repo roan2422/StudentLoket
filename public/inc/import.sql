@@ -28,7 +28,7 @@ CREATE TABLE `tickets` (
   `ticketid` integer PRIMARY KEY AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `priority` ENUM ('Laag', 'Gemiddeld', 'Hoog') NOT NULL,
+  `priority` ENUM ('Geen','Laag', 'Gemiddeld', 'Hoog') NOT NULL,
   `creationdate` timestamp NOT NULL,
   `status` ENUM ('Open', 'In behandeling', 'Opgelost') NOT NULL,
   `schoolid` int NOT NULL,

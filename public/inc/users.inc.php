@@ -38,6 +38,7 @@ function adduser($conn, $user)
         $query->bindParam(':name', $user["name"], PDO::PARAM_STR, 255);
         $query->bindParam(':email', $user["email"], PDO::PARAM_STR, 255);
         $query->execute();
+        return $conn->lastInsertId();
     } catch (Exception $e) {
         echo "<p>Error: " . $e->getMessage() . "</p>";
     }
