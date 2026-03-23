@@ -237,6 +237,9 @@
   .m-\[30px\] {
     margin: 30px;
   }
+  .m-\[50px\] {
+    margin: 50px;
+  }
   .mx-2 {
     margin-inline: calc(var(--spacing) * 2);
   }
@@ -252,8 +255,20 @@
   .mx-12 {
     margin-inline: calc(var(--spacing) * 12);
   }
+  .mx-\[5vw\] {
+    margin-inline: 5vw;
+  }
+  .mx-\[5w\] {
+    margin-inline: 5w;
+  }
   .mx-\[20px\] {
     margin-inline: 20px;
+  }
+  .mx-\[25vw\] {
+    margin-inline: 25vw;
+  }
+  .mx-\[50px\] {
+    margin-inline: 50px;
   }
   .mx-auto {
     margin-inline: auto;
@@ -309,6 +324,15 @@
   .mb-\[40px\] {
     margin-bottom: 40px;
   }
+  .mb-\[60px\] {
+    margin-bottom: 60px;
+  }
+  .mb-\[70px\] {
+    margin-bottom: 70px;
+  }
+  .mb-\[400px\] {
+    margin-bottom: 400px;
+  }
   .ml-2 {
     margin-left: calc(var(--spacing) * 2);
   }
@@ -363,6 +387,9 @@
   .h-\[110vh\] {
     height: 110vh;
   }
+  .h-\[120vh\] {
+    height: 120vh;
+  }
   .h-\[200px\] {
     height: 200px;
   }
@@ -383,6 +410,9 @@
   }
   .min-h-\[100\%\] {
     min-height: 100%;
+  }
+  .min-h-\[120vh\] {
+    min-height: 120vh;
   }
   .min-h-screen {
     min-height: 100vh;
@@ -520,6 +550,9 @@
   .overflow-hidden {
     overflow: hidden;
   }
+  .overflow-y-auto {
+    overflow-y: auto;
+  }
   .rounded {
     border-radius: 0.25rem;
   }
@@ -644,6 +677,9 @@
   .p-\[40px\] {
     padding: 40px;
   }
+  .p-\[300px\] {
+    padding: 300px;
+  }
   .px-2 {
     padding-inline: calc(var(--spacing) * 2);
   }
@@ -658,6 +694,9 @@
   }
   .px-\[20px\] {
     padding-inline: 20px;
+  }
+  .px-\[25px\] {
+    padding-inline: 25px;
   }
   .py-1 {
     padding-block: calc(var(--spacing) * 1);
@@ -680,6 +719,9 @@
   .py-10 {
     padding-block: calc(var(--spacing) * 10);
   }
+  .py-\[1vh\] {
+    padding-block: 1vh;
+  }
   .py-\[5px\] {
     padding-block: 5px;
   }
@@ -691,6 +733,9 @@
   }
   .py-\[15px\] {
     padding-block: 15px;
+  }
+  .py-\[30px\] {
+    padding-block: 30px;
   }
   .py-\[50px\] {
     padding-block: 50px;
@@ -916,6 +961,11 @@
       margin-inline: 0;
     }
   }
+  .md\:mx-\[25vw\] {
+    @media (width >= 48rem) {
+      margin-inline: 25vw;
+    }
+  }
   .md\:mb-\[0\] {
     @media (width >= 48rem) {
       margin-bottom: 0;
@@ -929,6 +979,11 @@
   .md\:hidden {
     @media (width >= 48rem) {
       display: none;
+    }
+  }
+  .md\:h-\[120vh\] {
+    @media (width >= 48rem) {
+      height: 120vh;
     }
   }
   .md\:min-h-\[80\%\] {

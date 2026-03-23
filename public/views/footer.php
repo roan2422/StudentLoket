@@ -2,7 +2,7 @@
             <div class="footer-top w-full h-[20%] text-center">
                 <p class="footer-top-title text-[40px] pt-[10px]">Contact opnemen:</p>
             </div>
-            <div class="footer-bottom flex flex-col md:flex-row gap-[30px] md:gap-[0] w-full min-h-[80%] mb-[40px] md:mb-[0]">
+            <div class="footer-bottom flex flex-col md:flex-row gap-[30px] md:gap-[0] w-full min-h-[80%] mb-[70px] md:mb-[0]">
                 <div class="footer-bottom-left md:w-[75%] flex justify-center items-center">
                     <div class="footer-bottom-left-middle flex gap-[50px]">
                         <a class="icon-linking no-underline flex flex-col items-center" href="https://www.instagram.com" target="_blank">
