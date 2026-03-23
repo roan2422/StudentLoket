@@ -27,25 +27,25 @@
        md:relative md:translate-x-0 transition duration-200 ease-in-out z-50"
   >
     <div class="mt-4">
-      <a href="http://scrum1.project/public/dashboard.php" class="block"><img src="img/logo.png" alt="logo" class="w-64" /></a>
+      <a href="http://scrum1.project/public/index.php" class="block"><img src="img/logo.png" alt="logo" class="w-64" /></a>
       <p class="text-center text-xl bg-[#FF008C] rounded-2xl py-4 block mt-4 mx-12">Admin</p>
     </div>
     <nav>
       <a
         href="http://scrum1.project/public/dashboard.php"
-        class="block py-3.5 text-center text-xl hover:bg-[#7EE4F7] rounded-2xl mx-8 sm:px-4 mb-2 hover:underline"
+        class="block py-3.5 text-center text-xl hover:bg-[#7EE4F7] hover:transition hover:duration-300 hover:cursor-pointer rounded-2xl mx-8 sm:px-4 mb-2 hover:underline"
       >Dashboard</a>
       <a
         href="http://scrum1.project/public/alleTickets.php"
-        class="block py-3.5 text-center text-xl hover:bg-[#7EE4F7] hover:rounded-2xl mx-8 sm:px-4 hover:underline my-2"
+        class="block py-3.5 text-center text-xl hover:bg-[#7EE4F7] hover:transition hover:duration-300 hover:cursor-pointer hover:rounded-2xl mx-8 sm:px-4 hover:underline my-2"
       >Alle tickets</a>
       <a
         href="http://scrum1.project/public/mijnTickets.php"
-        class="block py-3.5 text-center text-xl hover:bg-[#7EE4F7] hover:rounded-2xl sm:px-4 mx-8 hover:underline my-2"
+        class="block py-3.5 text-center text-xl hover:bg-[#7EE4F7] hover:transition hover:duration-300 hover:cursor-pointer hover:rounded-2xl sm:px-4 mx-8 hover:underline my-2"
       >Mijn tickets</a>
       <a
         href=""
-        class="block py-3.5 text-center text-xl hover:bg-[#7EE4F7] hover:rounded-2xl sm:px-4 mx-8 hover:underline my-2"
+        class="block py-3.5 text-center text-xl hover:bg-[#7EE4F7] hover:transition hover:duration-300 hover:cursor-pointer hover:rounded-2xl sm:px-4 mx-8 hover:underline my-2"
       >Admin</a>
     </nav>
     <div class="text-center">
@@ -53,7 +53,7 @@
         <h2 class="text-xs">Admin gebruiker</h2>
         <p class="text-xs font-thin">Scholengroep Amsterdam</p>
       </div>
-      <a href="" class="flex flex-row justify-center mx-5 py-3 bg-[#FF008C] rounded-2xl hover:bg-[#FF87BF] mb-8">
+      <a href="" class="flex flex-row justify-center mx-5 py-3 bg-[#FF008C] hover:transition hover:duration-300 hover:cursor-pointer rounded-2xl hover:bg-[#FF87BF] mb-8">
         <img src="img/logout.png" alt="logout" class="w-5 h-5 mt-1" />
         <h2 class="text-xl ml-2">Uitloggen</h2>
       </a>

@@ -7,14 +7,14 @@ include_once __DIR__ . '/views/navbar-dashboard.php';
 
     <div class="max-w-6xl mx-auto">
         <h1 class="text-center font-bold text-4xl my-12">Alle tickets</h1>
-        <div class="grid bg-white py-12 px-8 rounded-2xl border mb-6 gap-4 md:grid-cols-3">
+        <div class="grid bg-white py-8 px-8 rounded-2xl border mb-6 gap-4 md:grid-cols-3">
             <div class="flex flex-col items-center">
                 <label for="zoeken" class="text-lg font-bold">Zoeken</label>
-                <input type="text" id="zoeken" class="w-full mt-1 p-2 border rounded-xl text-center lg:text-left" placeholder="Zoek op titel of beschrijving">
+                <input type="text" id="zoeken" class="w-full mt-1 py-4 px-2 border rounded-xl text-center lg:text-left bg-gray-200 text-gray-500" placeholder="Zoek op titel of beschrijving">
             </div>
             <div class="flex flex-col items-center">
                 <label for="status" class="text-lg font-bold">Status</label>
-                <select id="status" class="w-full mt-1 p-2 border rounded-xl text-center lg:text-left">
+                <select id="status" class="w-full mt-1 py-4 px-2 border rounded-xl text-center lg:text-left bg-gray-200 text-gray-500 hover:cursor-pointer">
                     <option>Alle</option>
                     <option>Open</option>
                     <option>In behandeling</option>
@@ -23,7 +23,7 @@ include_once __DIR__ . '/views/navbar-dashboard.php';
             </div>
             <div class="flex flex-col items-center">
                 <label for="Prioriteit" class="text-lg font-bold">Prioriteit</label>
-                <select id="Prioriteit" class="w-full mt-1 p-2 border rounded-xl text-center lg:text-left">
+                <select id="Prioriteit" class="w-full mt-1 py-4 px-2 border rounded-xl text-center lg:text-left bg-gray-200 text-gray-500 hover:cursor-pointer">
                     <option>Alle</option>
                     <option>Gemiddeld</option>
                     <option>Hoog</option>
