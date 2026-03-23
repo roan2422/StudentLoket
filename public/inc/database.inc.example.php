@@ -1,7 +1,7 @@
 <?php
-$servername = "yourservername";         // Replace names with correct data and save file as "database.inc.php"
-$username = "yourusername";
-$password = "yourpassword";
+$servername = "studentloket";         // Replace names with correct data and save file as "database.inc.php"
+$username = "bit_academy";
+$password = "bit_academy";
 $dbname = "yourdatabasename";
 
 try {
