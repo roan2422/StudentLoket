@@ -2,12 +2,8 @@
 
 function checkuserdata($conn, $user)
 {
-    if (empty(trim($user['firstname']))) {
-        throw new Exception("Voornaam mag niet leeg zijn");
-    }
-
-    if (empty(trim($user['lastname']))) {
-        throw new Exception("Achternaam mag niet leeg zijn");
+    if (empty(trim($user['name']))) {
+        throw new Exception("Naam mag niet leeg zijn");
     }
 
     if (!empty(trim($user['email']))) {
@@ -38,10 +34,8 @@ function adduser($conn, $user)
 {
     try {
         checkuserdata($conn, $user);
-        $query = $conn->prepare("INSERT INTO users (firstname, infix, lastname, email) VALUES (:firstname, :infix, :lastname, :email)");
-        $query->bindParam(':firstname', $user["firstname"], PDO::PARAM_STR, 255);
-        $query->bindParam(':infix', $user["infix"], PDO::PARAM_STR, 255);
-        $query->bindParam(':lastname', $user["lastname"], PDO::PARAM_STR, 255);
+        $query = $conn->prepare("INSERT INTO users (name, email) VALUES (:name, :email)");
+        $query->bindParam(':name', $user["name"], PDO::PARAM_STR, 255);
         $query->bindParam(':email', $user["email"], PDO::PARAM_STR, 255);
         $query->execute();
     } catch (Exception $e) {
@@ -53,10 +47,8 @@ function edituser($conn, $user)
 {
     try {
         checkuserdata($conn, $user);
-        $query = $conn->prepare("UPDATE users SET firstname=:firstname, infix=:infix, lastname=:lastname, email=:email WHERE userid=:userid");
-        $query->bindParam(':firstname', $user["firstname"], PDO::PARAM_STR, 255);
-        $query->bindParam(':infix', $user["infix"], PDO::PARAM_STR, 255);
-        $query->bindParam(':lastname', $user["lastname"], PDO::PARAM_STR, 255);
+        $query = $conn->prepare("UPDATE users SET name=:name, email=:email WHERE userid=:userid");
+        $query->bindParam(':name', $user["name"], PDO::PARAM_STR, 255);
         $query->bindParam(':email', $user["email"], PDO::PARAM_STR, 255);
         $query->bindParam(':userid', $user['userid'], PDO::PARAM_INT);
         $query->execute();

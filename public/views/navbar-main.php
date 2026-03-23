@@ -1,6 +1,6 @@
 <?php
   $title = 'Home';
-  include_once 'views/header.php';
+require_once 'views/header.php';
 ?>
 
 <div class="navbar flex h-[8vh] bg-primary-blue">
