@@ -5,33 +5,47 @@ require_once __DIR__ . '/views/header.php';
 require_once __DIR__ . '/views/navbar-dashboard.php';
 require_once 'inc/tickets.inc.php';
 $tickets = gettickets($conn);
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    try {
+        $args = [
+            'search' => $_POST['search'],
+            'priority' => $_POST['priority'],
+            'status' => $_POST['status']
+        ];
+        $tickets = searchtickets($conn, $args);
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+}
 ?>
 <div class="flex-1 min-h-screen p-10">
 
     <div class="max-w-6xl mx-auto">
         <h1 class="text-center font-bold text-4xl my-12">Alle tickets</h1>
-        <form method="get">
+        <form method="POST">
             <div class="grid bg-white py-8 px-8 rounded-2xl border mb-6 gap-6 md:grid-cols-4 items-end">
                 <div class="flex flex-col">
                     <label for="zoeken" class="text-lg font-bold">Zoeken</label>
-                    <input type="text" id="zoeken" class="w-full mt-1 py-4 px-2 border rounded-xl text-center lg:text-left bg-gray-200 text-gray-500" placeholder="Zoek op titel of beschrijving">
+                    <input type="text" id="zoeken" class="w-full mt-1 py-4 px-2 border rounded-xl text-center lg:text-left bg-gray-200 text-gray-500" placeholder="Zoek op titel of beschrijving" name="search">
                 </div>
                 <div class="flex flex-col">
                     <label for="status" class="text-lg font-bold">Status</label>
-                    <select id="status" class="w-full mt-1 py-4 px-2 border rounded-xl text-center lg:text-left bg-gray-200 text-gray-500 hover:cursor-pointer">
-                        <option>Alle</option>
-                        <option>Open</option>
-                        <option>In behandeling</option>
-                        <option>Opgelost</option>
+                    <select id="status" class="w-full mt-1 py-4 px-2 border rounded-xl text-center lg:text-left bg-gray-200 text-gray-500 hover:cursor-pointer" name="status">
+                        <option value="">Alle</option>
+                        <option value="Open">Open</option>
+                        <option value="In behandeling">In behandeling</option>
+                        <option value="Opgelost">Opgelost</option>
                     </select>
                 </div>
                 <div class="flex flex-col">
                     <label for="Prioriteit" class="text-lg font-bold">Prioriteit</label>
-                    <select id="Prioriteit" class="w-full mt-1 py-4 px-2 border rounded-xl text-center lg:text-left bg-gray-200 text-gray-500 hover:cursor-pointer">
-                        <option>Alle</option>
-                        <option>Gemiddeld</option>
-                        <option>Hoog</option>
-                        <option>Urgent</option>
+                    <select id="Prioriteit" class="w-full mt-1 py-4 px-2 border rounded-xl text-center lg:text-left bg-gray-200 text-gray-500 hover:cursor-pointer" name="priority">
+                        <option value="">Alle</option>
+                        <option value="Geen">Geen</option>
+                        <option value="Laag">Laag</option>
+                        <option value="Gemiddeld">Gemiddeld</option>
+                        <option value="Hoog">Hoog</option>
                     </select>
                 </div>
                 <div class="flex flex-col">
@@ -74,11 +88,12 @@ $tickets = gettickets($conn);
                                 <?= $ticket['maker'] ?> • <?= $ticket['schoolname'] ?><?php if (!empty($ticket['assignee'])): ?> • Toegewezen aan: <?= $ticket['assignee'] ?> <?php endif; ?>
                             </p>
                         </div>
-
                         <div class="text-right">
-                            <span class="<?= $prioritycolor ?> text-xs px-2 py-1 rounded">
-                                <?= $ticket['priority'] ?>
-                            </span>
+                            <?php if ($ticket['priority'] != 'Geen'): ?>
+                                <span class="<?= $prioritycolor ?> text-xs px-2 py-1 rounded">
+                                    <?= $ticket['priority'] ?>
+                                </span>
+                            <?php endif; ?>
                             <p class="text-xs mt-2 text-gray-500"><?= date_format(date_create($ticket['creationdate']), "d-m-Y") ?></p>
                         </div>
                     </div>
