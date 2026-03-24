@@ -1,16 +1,8 @@
 <?php
 session_start();
 
-$host = 'localhost';
-$databasenaam = 'studentloket';
-$gebruiker = 'bit_academy';
-$db_pass = '';
-
+require_once 'inc/database.inc.php';
 $error = "";
-
-$database = new PDO("mysql:host=$host;dbname=$databasenaam;charset=utf8", $gebruiker, $db_pass);
-$database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 
 if (isset($_POST['login'])) {
     $emailInvoer = $_POST['email'];
