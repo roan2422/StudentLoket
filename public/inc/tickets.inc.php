@@ -115,7 +115,10 @@ function getticket($conn, $id)
 function gettickets($conn)
 {
     try {
-        $query = $conn->prepare("SELECT * FROM tickets");
+        $query = $conn->prepare("SELECT t.title, t.description, t.priority, t.creationdate, t.status, s.schoolname, u.name AS maker, us.name AS assignee FROM tickets t
+LEFT JOIN schools s ON t.schoolid = s.schoolid
+LEFT JOIN users u ON t.makerid = u.userid
+LEFT JOIN users us ON t.assigneeid = us.userid;");
         $query->execute();
         return $query->fetchAll();
     } catch (Exception $e) {
