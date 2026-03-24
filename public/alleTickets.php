@@ -7,12 +7,13 @@ include_once __DIR__ . '/views/navbar-dashboard.php';
 
     <div class="max-w-6xl mx-auto">
         <h1 class="text-center font-bold text-4xl my-12">Alle tickets</h1>
-        <div class="grid bg-white py-8 px-8 rounded-2xl border mb-6 gap-4 md:grid-cols-3">
-            <div class="flex flex-col items-center">
+        <form method="get">
+        <div class="grid bg-white py-8 px-8 rounded-2xl border mb-6 gap-6 md:grid-cols-4 items-end">
+            <div class="flex flex-col">
                 <label for="zoeken" class="text-lg font-bold">Zoeken</label>
                 <input type="text" id="zoeken" class="w-full mt-1 py-4 px-2 border rounded-xl text-center lg:text-left bg-gray-200 text-gray-500" placeholder="Zoek op titel of beschrijving">
             </div>
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col">
                 <label for="status" class="text-lg font-bold">Status</label>
                 <select id="status" class="w-full mt-1 py-4 px-2 border rounded-xl text-center lg:text-left bg-gray-200 text-gray-500 hover:cursor-pointer">
                     <option>Alle</option>
@@ -21,7 +22,7 @@ include_once __DIR__ . '/views/navbar-dashboard.php';
                     <option>Opgelost</option>
                 </select>
             </div>
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col">
                 <label for="Prioriteit" class="text-lg font-bold">Prioriteit</label>
                 <select id="Prioriteit" class="w-full mt-1 py-4 px-2 border rounded-xl text-center lg:text-left bg-gray-200 text-gray-500 hover:cursor-pointer">
                     <option>Alle</option>
@@ -30,7 +31,14 @@ include_once __DIR__ . '/views/navbar-dashboard.php';
                     <option>Urgent</option> 
                 </select>
             </div>
+            <div class="flex flex-col">
+                <span class="text-lg font-bold invisible">Filter</span> 
+                <button type="submit" class="w-full mt-1 py-4 bg-blue-500 text-white rounded-2xl hover:cursor-pointer hover:underline hover:bg-blue-400 transition-colors">
+                    Filteren
+                </button>
             </div>
+            </div>
+            </form>
         <div class="bg-white rounded-2xl border overflow-hidden mt-6">
             <div class="px-6 py-6 border-b font-semibold">3 tickets</div>
             <div class="divide-y">
