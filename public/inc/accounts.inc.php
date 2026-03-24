@@ -23,16 +23,18 @@ function checkaccountdata($conn, $account)
     if (empty(trim($account['userid']))) {
         throw new Exception("User ID mag niet leeg zijn");
     }
+
+    return $account;
 }
 
 function addaccount($conn, $account)
 {
     try {
-        checkaccountdata($conn, $account);
+        $checkedaccount = checkaccountdata($conn, $account);
         $query = $conn->prepare("INSERT INTO accounts (userid, password, role) VALUES (:userid, :password, :role)");
-        $query->bindParam(':userid', $account["userid"], PDO::PARAM_INT);
-        $query->bindParam(':password', password_hash($account["password"], PASSWORD_DEFAULT), PDO::PARAM_STR);
-        $query->bindParam(':role', $account["role"], PDO::PARAM_STR);
+        $query->bindParam(':userid', $checkedaccount["userid"], PDO::PARAM_INT);
+        $query->bindParam(':password', $checkedaccount["password"], PDO::PARAM_STR);
+        $query->bindParam(':role', $checkedaccount["role"], PDO::PARAM_STR);
         $query->execute();
     } catch (Exception $e) {
         echo "<p>Error: " . $e->getMessage() . "</p>";
@@ -42,12 +44,12 @@ function addaccount($conn, $account)
 function editaccount($conn, $account)
 {
     try {
-        checkaccountdata($conn, $account);
+        $checkedaccount = checkaccountdata($conn, $account);
         $query = $conn->prepare("UPDATE accounts SET password=:password, role=:role, userid=:userid WHERE accountid=:accountid");
-        $query->bindParam(':password', password_hash($account["password"], PASSWORD_DEFAULT), PDO::PARAM_STR);
-        $query->bindParam(':role', $account["role"], PDO::PARAM_STR);
-        $query->bindParam(':userid', $account['userid'], PDO::PARAM_INT);
-        $query->bindParam(':accountid', $account['accountid'], PDO::PARAM_INT);
+        $query->bindParam(':password', $checkedaccount["password"], PDO::PARAM_STR);
+        $query->bindParam(':role', $checkedaccount["role"], PDO::PARAM_STR);
+        $query->bindParam(':userid', $checkedaccount['userid'], PDO::PARAM_INT);
+        $query->bindParam(':accountid', $checkedaccount['accountid'], PDO::PARAM_INT);
         $query->execute();
     } catch (Exception $e) {
         echo "<p>Error: " . $e->getMessage() . "</p>";

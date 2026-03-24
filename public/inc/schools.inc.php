@@ -108,3 +108,15 @@ function getschools($conn)
         echo "<p>Error: " . $e->getMessage() . "</p>";
     }
 }
+
+function getschoolnames($conn)
+{
+    try {
+        $query = $conn->prepare("SELECT schoolid, schoolname FROM schools");
+        $query->execute();
+        $fetchedschoolnames = $query->fetchAll();
+        return $fetchedschoolnames;
+    } catch (Exception $e) {
+        echo "<p>Error: " . $e->getMessage() . "</p>";
+    }
+}
