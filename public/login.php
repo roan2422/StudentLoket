@@ -1,7 +1,54 @@
 <?php
-    $title = 'Home';
-    include_once 'views/header.php';
-    include_once 'views/navbar-main.php';
+session_start();
+
+$host = 'localhost';
+$databasenaam = 'studentloket';
+$gebruiker = 'bit_academy';
+$db_pass = '';
+
+$error = "";
+
+try {
+    $database = new PDO("mysql:host=$host;dbname=$databasenaam;charset=utf8", $gebruiker, $db_pass);
+    $database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("verbinding mislukt: " . $e->getMessage());
+}
+
+
+if (isset($_POST['login'])) {
+    $emailInvoer = $_POST['email'];
+    $wachtwoordInvoer = $_POST['wachtwoord'];
+
+    $sql = "SELECT users.userid, users.email, accounts.password, accounts.role 
+                FROM users 
+                JOIN accounts ON users.userid = accounts.userid 
+                WHERE users.email = :email 
+                AND accounts.password = :password";
+
+    $stmt = $database->prepare($sql);
+    $stmt->execute([
+        'email' => $emailInvoer,
+        'password' => $wachtwoordInvoer
+    ]);
+
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($user) {
+        $_SESSION['user_id'] = $user['userid'];
+        $_SESSION['role'] = $user['role'];
+        $_SESSION['firstname'] = "Gebruiker";
+
+        header("Location: dashboard.php");
+        exit();
+    } else {
+        $error = "E-mailadres of wachtwoord is onjuist.";
+    }
+}
+
+$title = 'Inloggen';
+include_once 'views/header.php';
+include_once 'views/navbar-main.php';
 ?>
 
 <div class="h-[92vh] py-[20vh]">
@@ -9,22 +56,25 @@
         <div>
             <p class="text-[50px]">Inloggen</p>
         </div>
-        <form>
+
+        <?php if ($error): ?>
+            <p class="text-red-500 mb-4"><?php echo $error; ?></p>
+        <?php endif; ?>
+
+        <form method="POST">
             <div class="mt-[20px]">
                 <p class="text-[20px] text-center">E-mailadres</p>
-                <input required class="w-[300px] mt-[10px] border-[1.5px] rounded-[6px] p-[5px]" placeholder="Uw.email@school.nl" type="email" name="email-login-input" id="email-login-input">
+                <input required class="w-[300px] mt-[10px] border-[1.5px] rounded-[6px] p-[5px]" placeholder="Uw.email@school.nl" type="email" name="email">
             </div>
             <div class="mt-[20px]">
                 <p class="text-[20px] text-center">Wachtwoord</p>
-                <input required class="w-[300px] mt-[10px] border-[1.5px] rounded-[6px] p-[5px]" type="password" name="wachtwoord-login-input" id="wachtwoord-login-input">
+                <input required class="w-[300px] mt-[10px] border-[1.5px] rounded-[6px] p-[5px]" type="password" name="wachtwoord">
             </div>
             <div class="mt-[50px] w-full flex justify-end">
-                <button class="cursor-pointer bg-accent-pink py-[10px] px-[15px] text-white rounded-[10px]">Inloggen</button>
+                <button type="submit" name="login" class="cursor-pointer bg-accent-pink py-[10px] px-[15px] text-white rounded-[10px]">Inloggen</button>
             </div>
         </form>
     </div>
 </div>
 
-<?php
-            include_once 'views/footer.php';
-        ?>
+<?php include_once 'views/footer.php'; ?>

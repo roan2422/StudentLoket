@@ -1,4 +1,5 @@
 <?php
+session_start();
 $title = 'Dashboard';
 include_once __DIR__ . '/views/header.php';
 include_once __DIR__ . '/views/navbar-dashboard.php';
