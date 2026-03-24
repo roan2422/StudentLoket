@@ -14,7 +14,7 @@ if (isset($_POST['login'])) {
                 WHERE users.email = :email 
                 AND accounts.password = :password";
 
-    $stmt = $database->prepare($sql);
+    $stmt = $conn->prepare($sql);
     $stmt->execute([
         'email' => $emailInvoer,
         'password' => $wachtwoordInvoer
