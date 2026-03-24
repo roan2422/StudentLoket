@@ -1,9 +1,9 @@
-        <div class="footer bg-accent-pink text-white min-h-[25vh] flex flex-col gap-[30px] md:gap-[0]" id="footer">
+ <div class="footer bg-accent-pink text-white h-[25vh]" id="footer">
             <div class="footer-top w-full h-[20%] text-center">
                 <p class="footer-top-title text-[40px] pt-[10px]">Contact opnemen:</p>
             </div>
-            <div class="footer-bottom flex flex-col md:flex-row gap-[30px] md:gap-[0] w-full min-h-[80%] mb-[70px] md:mb-[0]">
-                <div class="footer-bottom-left md:w-[75%] flex justify-center items-center">
+            <div class="footer-bottom flex w-full h-[80%]">
+                <div class="footer-bottom-left w-[75%] flex justify-center items-center">
                     <div class="footer-bottom-left-middle flex gap-[50px]">
                         <a class="icon-linking no-underline flex flex-col items-center" href="https://www.instagram.com" target="_blank">
                             <img class="h-[50px] w-[50px]" src="img/instagram-white.webp" alt="instagram-white" />
@@ -23,7 +23,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="footer-bottom-right md:w-[25%] flex flex-col items-center justify-center gap-[10px]">
+                <div class="footer-bottom-right w-[25%] flex flex-col items-center justify-center gap-[10px]">
                     <div>
                         <p class="footer-bottom-right-title text-[25px]">Onze gegevens:</p>
                     </div>
