@@ -1,5 +1,5 @@
 <?php
-  $title = 'Home';
+$title = 'Home';
 require_once 'views/header.php';
 ?>
 
@@ -15,7 +15,7 @@ require_once 'views/header.php';
                 <button onclick="document.location='create-ticket.php'" class="navbar-ticket-button text-white py-[10px] px-[20px] rounded-[10px] cursor-pointer">Ticket indienen</button>
             </div>
             <div>
-                <button class="navbar-login-button text-white py-[10px] px-[20px] rounded-[10px] bg-[#D50075] cursor-pointer mr-[20px]">Inloggen</button>
+                <button onclick="document.location='login.php'" class="navbar-login-button text-white py-[10px] px-[20px] rounded-[10px] bg-[#D50075] cursor-pointer mr-[20px]">Inloggen</button>
             </div>
         </div>
     </div>

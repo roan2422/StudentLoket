@@ -64,11 +64,10 @@ function editticket($conn, $ticket)
 {
     try {
         $checkedticket = checkticketdata($conn, $ticket);
-        $query = $conn->prepare("UPDATE tickets SET title=:title, description=:description, priority=:priority, creationdate=:creationdate, status=:status, schoolid=:schoolid, makerid=:makerid, assigneeid=:assigneeid, notes=:notes WHERE ticketid=:ticketid");
+        $query = $conn->prepare("UPDATE tickets SET title=:title, description=:description, priority=:priority, status=:status, schoolid=:schoolid, makerid=:makerid, assigneeid=:assigneeid, notes=:notes WHERE ticketid=:ticketid");
         $query->bindParam(':title', $checkedticket["title"], PDO::PARAM_STR);
         $query->bindParam(':description', $checkedticket["description"], PDO::PARAM_STR);
         $query->bindParam(':priority', $checkedticket["priority"], PDO::PARAM_STR);
-        $query->bindParam(':creationdate', $checkedticket["creationdate"], PDO::PARAM_STR);
         $query->bindParam(':status', $checkedticket["status"], PDO::PARAM_STR);
         $query->bindParam(':schoolid', $checkedticket["school"], PDO::PARAM_INT);
         $query->bindParam(':makerid', $checkedticket["maker"], PDO::PARAM_INT);
@@ -118,7 +117,35 @@ function getticket($conn, $id)
 function gettickets($conn)
 {
     try {
-        $query = $conn->prepare("SELECT * FROM tickets");
+        $query = $conn->prepare("SELECT t.title, t.description, t.priority, t.creationdate, t.status, s.schoolname, u.name AS maker, us.name AS assignee FROM tickets t
+LEFT JOIN schools s ON t.schoolid = s.schoolid
+LEFT JOIN users u ON t.makerid = u.userid
+LEFT JOIN users us ON t.assigneeid = us.userid
+ORDER BY t.creationdate ASC");
+        $query->execute();
+        return $query->fetchAll();
+    } catch (Exception $e) {
+        echo "<p>Error: " . $e->getMessage() . "</p>";
+    }
+}
+
+function searchtickets($conn, $args)
+{
+    try {
+        $query = $conn->prepare("SELECT t.title, t.description, t.priority, t.creationdate, t.status, s.schoolname, u.name AS maker, us.name AS assignee FROM tickets t
+LEFT JOIN schools s ON t.schoolid = s.schoolid
+LEFT JOIN users u ON t.makerid = u.userid
+LEFT JOIN users us ON t.assigneeid = us.userid
+WHERE (t.title LIKE :search OR t.description LIKE :search)
+AND t.priority LIKE :priority
+AND t.status LIKE :status
+ORDER BY t.creationdate ASC");
+        $search = "%" . $args['search'] . "%";
+        $priority = "%" . $args['priority'] . "%";
+        $status = "%" . $args['status'] . "%";
+        $query->bindParam(':search', $search, PDO::PARAM_STR);
+        $query->bindParam(':priority', $priority, PDO::PARAM_STR);
+        $query->bindParam(':status', $status, PDO::PARAM_STR);
         $query->execute();
         return $query->fetchAll();
     } catch (Exception $e) {
