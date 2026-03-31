@@ -44,17 +44,20 @@ include_once 'views/navbar-main.php';
         <div>
             <p class="text-[50px]">Inloggen</p>
         </div>
-        <form>
+        <?php if ($error): ?>
+            <p class="text-red-500 mb-4"><?php echo $error; ?></p>
+        <?php endif; ?>
+        <form method="POST">
             <div class="mt-[20px]">
                 <p class="text-[20px] text-center">E-mailadres</p>
-                <input required class="md:w-[300px] mt-[10px] border-[1.5px] rounded-[6px] p-[5px]" placeholder="Uw.email@school.nl" type="email" name="email-login-input" id="email-login-input">
+                <input required class="md:w-[300px] mt-[10px] border-[1.5px] rounded-[6px] p-[5px]" placeholder="Uw.email@school.nl" type="email" name="email" id="email">
             </div>
             <div class="mt-[20px]">
                 <p class="text-[20px] text-center">Wachtwoord</p>
-                <input required class="md:w-[300px] mt-[10px] border-[1.5px] rounded-[6px] p-[5px]" type="password" name="wachtwoord-login-input" id="wachtwoord-login-input">
+                <input required class="md:w-[300px] mt-[10px] border-[1.5px] rounded-[6px] p-[5px]" type="password" name="wachtwoord" id="wachtwoord">
             </div>
             <div class="mt-[50px] w-full flex justify-center md:justify-end">
-                <button class="cursor-pointer bg-accent-pink py-[10px] px-[15px] text-white rounded-[10px]">Inloggen</button>
+                <button type="submit" name="login" class="cursor-pointer bg-accent-pink py-[10px] px-[15px] text-white rounded-[10px]">Inloggen</button>
             </div>
         </form>
     </div>
