@@ -120,3 +120,14 @@ function getschoolnames($conn)
         echo "<p>Error: " . $e->getMessage() . "</p>";
     }
 }
+
+function countschools($conn)
+{
+    try {
+        $query = $conn->prepare("SELECT COUNT(*) FROM schools");
+        $query->execute();
+        return $query->fetch(PDO::FETCH_ASSOC);
+    } catch (Exception $e) {
+        echo "<p>Error: " . $e->getMessage() . "</p>";
+    }
+}

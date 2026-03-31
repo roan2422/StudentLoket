@@ -152,3 +152,52 @@ ORDER BY t.creationdate ASC");
         echo "<p>Error: " . $e->getMessage() . "</p>";
     }
 }
+
+function getopentickets($conn, $status)
+{
+    try {
+        $query = $conn->prepare("SELECT COUNT(*) FROM tickets WHERE status=:status");
+        $query->bindParam(':status', $status, PDO::PARAM_STR);
+        $query->execute();
+        return $query->fetch(PDO::FETCH_ASSOC);
+    } catch (Exception $e) {
+        echo "<p>Error: " . $e->getMessage() . "</p>";
+    }
+}
+
+function getactiveschooltickets($conn, $schoolid)
+{
+    try {
+        $query = $conn->prepare("SELECT COUNT(*) FROM tickets WHERE schoolid=:schoolid AND status!='Opgelost'");
+        $query->bindParam(':schoolid', $schoolid, PDO::PARAM_INT);
+        $query->execute();
+        return $query->fetch(PDO::FETCH_ASSOC);
+    } catch (Exception $e) {
+        echo "<p>Error: " . $e->getMessage() . "</p>";
+    }
+}
+
+function getusertickets($conn, $userid, $status)
+{
+    try {
+        $query = $conn->prepare("SELECT * FROM tickets WHERE assigneeid=:userid AND status LIKE :status");
+        $query->bindParam(':userid', $userid, PDO::PARAM_INT);
+        $query->bindParam(':status', $status, PDO::PARAM_STR);
+        $query->execute();
+        return $query->fetchAll();
+    } catch (Exception $e) {
+        echo "<p>Error: " . $e->getMessage() . "</p>";
+    }
+}
+
+function getticketoverview($conn, $id)
+{
+    try {
+        $query = $conn->prepare("SELECT * FROM tickets t JOIN users u ON t.makerid = u.userid JOIN schools s on t.schoolid = s.schoolid WHERE ticketid=:ticketid");
+        $query->bindParam(':ticketid', $id, PDO::PARAM_INT);
+        $query->execute();
+        return $query->fetch(PDO::FETCH_ASSOC);
+    } catch (Exception $e) {
+        echo "<p>Error: " . $e->getMessage() . "</p>";
+    }
+}

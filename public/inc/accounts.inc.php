@@ -102,3 +102,26 @@ function connectaccountwithschool($conn, $accountid, $schoolid)
         echo "<p>Error: " . $e->getMessage() . "</p>";
     }
 }
+
+function countallaccounts($conn)
+{
+    try {
+        $query = $conn->prepare("SELECT COUNT(*) FROM accounts");
+        $query->execute();
+        return $query->fetch(PDO::FETCH_ASSOC);
+    } catch (Exception $e) {
+        echo "<p>Error: " . $e->getMessage() . "</p>";
+    }
+}
+
+function countschoolaccounts($conn, $schoolid)
+{
+    try {
+        $query = $conn->prepare("SELECT COUNT(*) FROM accounts a JOIN accountschoolconn s ON a.accountid = s.accountid WHERE s.schoolid=:schoolid AND a.role!='Admin'");
+        $query->bindParam(':schoolid', $schoolid, PDO::PARAM_INT);
+        $query->execute();
+        return $query->fetch(PDO::FETCH_ASSOC);
+    } catch (Exception $e) {
+        echo "<p>Error: " . $e->getMessage() . "</p>";
+    }
+}
