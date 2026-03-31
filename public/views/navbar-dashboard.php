@@ -27,20 +27,20 @@
        md:relative md:translate-x-0 transition duration-200 ease-in-out z-50"
   >
     <div class="mt-4">
-      <a href="http://scrum1.project/public/index.php" class="block"><img src="img/logo.png" alt="logo" class="w-64" /></a>
+      <a href="index.php" class="block"><img src="img/logo.png" alt="logo" class="w-64" /></a>
       <p class="text-center text-xl bg-[#FF008C] rounded-2xl py-4 block mt-4 mx-12">Admin</p>
     </div>
     <nav>
       <a
-        href="http://scrum1.project/public/dashboard.php"
+        href="dashboard.php"
         class="block py-3.5 text-center text-xl hover:bg-[#7EE4F7] hover:transition hover:duration-300 hover:cursor-pointer rounded-2xl mx-8 sm:px-4 mb-2 hover:underline"
       >Dashboard</a>
       <a
-        href="http://scrum1.project/public/alleTickets.php"
+        href="alleTickets.php"
         class="block py-3.5 text-center text-xl hover:bg-[#7EE4F7] hover:transition hover:duration-300 hover:cursor-pointer hover:rounded-2xl mx-8 sm:px-4 hover:underline my-2"
       >Alle tickets</a>
       <a
-        href="http://scrum1.project/public/mijnTickets.php"
+        href="mijnTickets.php"
         class="block py-3.5 text-center text-xl hover:bg-[#7EE4F7] hover:transition hover:duration-300 hover:cursor-pointer hover:rounded-2xl sm:px-4 mx-8 hover:underline my-2"
       >Mijn tickets</a>
       <a
