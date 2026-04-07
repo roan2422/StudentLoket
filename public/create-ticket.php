@@ -29,8 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 ?>
 
-<div class="h-[110vh] py-[11vh]">
-    <div class="bg-gray-100 ml-[25vw] mr-[25vw] p-[20px] rounded-[20px]">
+<div class="h-[120vh] py-[11vh]">
+    <div class="bg-gray-100 mx-[5vw] md:mx-[25vw] p-[20px] rounded-[20px]">
         <div>
             <p class="text-7xl text-[35px] text-center">Ticket Indienen</p>
         </div>
