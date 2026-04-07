@@ -40,9 +40,9 @@ require_once 'views/navbar-main.php';
                 <div class="homepage-card-3 text-white aspect-[4/3] p-[40px] rounded-[25px] text-center flex flex-col items-center justify-evenly bg-accent-green">
                     <p class="card-title text-[35px] text-7xl">Volledige transparantie</p>
                     <p class="card-text text-[25px]">
-                        Ons team van technische<br />
-                        medewerkers pakt uw ticket snel op<br />
-                        en helpt u verder.
+                        Je ziet precies wie aan<br>
+                        je ticket werkt, welke stappen zijn<br>
+                        genomen en wat de volgende stap is.
                     </p>
                 </div>
             </div>
