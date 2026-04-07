@@ -1,5 +1,5 @@
 <?php
-$title = 'Alle_tickets';
+$title = 'Alle Tickets';
 require_once 'inc/database.inc.php';
 require_once __DIR__ . '/views/header.php';
 require_once __DIR__ . '/views/navbar-dashboard.php';
